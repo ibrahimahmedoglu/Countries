@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="97" id="KGk-i7-Jjw" customClass="CountryDesignCell" customModule="Countries" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="97"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="397" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA2-bw-cX8">
+                        <rect key="frame" x="10" y="10" width="377" height="77"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="187" translatesAutoresizingMaskIntoConstraints="NO" id="5Tq-fN-Uqz">
+                                <rect key="frame" x="41" y="16" width="121.5" height="73"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq8-vs-Dof">
+                                        <rect key="frame" x="10" y="10" width="41.5" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdG-S6-DTM">
+                                        <rect key="frame" x="61.5" y="10" width="50" height="53"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fdG-S6-DTM" firstAttribute="top" secondItem="5Tq-fN-Uqz" secondAttribute="top" constant="10" id="ApH-Eh-Tgf"/>
+                                    <constraint firstAttribute="bottom" secondItem="fdG-S6-DTM" secondAttribute="bottom" constant="10" id="Iik-bC-YbK"/>
+                                    <constraint firstItem="fdG-S6-DTM" firstAttribute="leading" secondItem="eq8-vs-Dof" secondAttribute="trailing" constant="10" id="WjO-ic-Uno"/>
+                                    <constraint firstAttribute="bottom" secondItem="eq8-vs-Dof" secondAttribute="bottom" constant="10" id="Xjo-sF-tJi"/>
+                                    <constraint firstAttribute="trailing" secondItem="fdG-S6-DTM" secondAttribute="trailing" constant="10" id="huD-oS-G1U"/>
+                                    <constraint firstItem="fdG-S6-DTM" firstAttribute="leading" secondItem="eq8-vs-Dof" secondAttribute="trailing" constant="10" id="iyO-If-Jcw"/>
+                                    <constraint firstItem="eq8-vs-Dof" firstAttribute="top" secondItem="5Tq-fN-Uqz" secondAttribute="top" constant="10" id="ra2-yh-iNg"/>
+                                    <constraint firstItem="eq8-vs-Dof" firstAttribute="leading" secondItem="5Tq-fN-Uqz" secondAttribute="leading" constant="10" id="tC9-k9-FMS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GA2-bw-cX8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gvA-Rx-Ed6"/>
+                    <constraint firstItem="GA2-bw-cX8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="h01-74-ihI"/>
+                    <constraint firstAttribute="trailing" secondItem="GA2-bw-cX8" secondAttribute="trailing" constant="10" id="kwm-HR-Al7"/>
+                    <constraint firstAttribute="bottom" secondItem="GA2-bw-cX8" secondAttribute="bottom" constant="10" id="vRL-Un-Lfs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="label" destination="eq8-vs-Dof" id="oZz-Sq-zJf"/>
+            </connections>
+            <point key="canvasLocation" x="267.39130434782612" y="108.81696428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
