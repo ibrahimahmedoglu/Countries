@@ -50,7 +50,7 @@ class DetailScreenVc: UIViewController, DetailManagerDelegate{
         image = image?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(goBack))
         
-        
+        print("jnj")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: rightImage?.withTintColor(.darkGray), style: .plain, target: self, action: #selector(rightPressed) )
         
 
