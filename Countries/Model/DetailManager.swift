@@ -16,11 +16,13 @@ protocol DetailManagerDelegate {
 
 struct DetailManager {
     let Detailsurl = "https://wft-geo-db.p.rapidapi.com/v1/geo/countries/"
+    var cCode: String =  ""
     
     
     var delegate: DetailManagerDelegate?
   
-    func fetchDetail(code: String){
+    mutating func fetchDetail(code: String){
+        self.cCode = code
         let UrlString = "\(Detailsurl)\(code)?rapidapi-key=a85f7682d4msh8dac1bf49497bd5p1f68fcjsncd0c4e79cc08"
         performRequest(urlString: UrlString)
     }

@@ -10,10 +10,15 @@ import UIKit
 protocol SavedScreenVcdelegate {
     func didUpdateCountries(countries: [Country])
 }
+protocol DetailScreenVcdelegate {
+    func didUpdateCode(countryCode: String)
+}
 
 class ViewController: UIViewController, CountriesManagerDelegate, FavouriteCellsDelegate
 {
     var delegate: SavedScreenVcdelegate?
+    
+    var detailDelegete: DetailScreenVcdelegate?
     
 
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +26,7 @@ class ViewController: UIViewController, CountriesManagerDelegate, FavouriteCells
     
     var countriesManager = CountriesManager()
     var countriesList: [Country] = []
+    var cCode: String = ""
   
      
     
@@ -28,6 +34,9 @@ class ViewController: UIViewController, CountriesManagerDelegate, FavouriteCells
         
         super.viewDidLoad()
         countriesManager.delegate = self
+        
+
+        
         
         
         countriesManager.performRequest()
@@ -50,11 +59,12 @@ class ViewController: UIViewController, CountriesManagerDelegate, FavouriteCells
         
         if countriesList[favourites].saved == true {
             countriesList[favourites].saved = false
-            
+            print(countriesList[favourites].wikiDataId)
             self.delegate?.didUpdateCountries(countries: countriesList)
             
-        } else{
+        } else {
             countriesList[favourites].saved = true
+            
             self.delegate?.didUpdateCountries(countries: countriesList)
         }
         
@@ -86,6 +96,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.cCode = countriesList[indexPath.row].code
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     

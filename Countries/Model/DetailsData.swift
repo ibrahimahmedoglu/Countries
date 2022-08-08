@@ -2,7 +2,7 @@
 //  DetailsData.swift
 //  Countries
 //
-//  Created by ibrahim ahmedoglu on 7.08.2022.
+//  Created by ibrahim ahmedogluuu on 7.08.2022.
 //
 
 import Foundation

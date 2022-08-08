@@ -120,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				9632CF7F289BDA3A0004B695 /* Main.storyboard */,
-				965BF606289DA7E900FCDA99 /* CountryCell.swift */,
 				965BF607289DA7E900FCDA99 /* CountryCell.xib */,
 			);
 			path = View;
@@ -129,6 +128,7 @@
 		9632CF8F289BDA5A0004B695 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				965BF606289DA7E900FCDA99 /* CountryCell.swift */,
 				9632CF7D289BDA3A0004B695 /* ViewController.swift */,
 				9632CFBA289D757E0004B695 /* SavedScreenVC.swift */,
 				965BF610289E770600FCDA99 /* DetailScreenVc.swift */,
@@ -142,7 +142,6 @@
 				0DFC16576AF61AE27B6475B4 /* Pods-Countries.debug.xcconfig */,
 				5DDBD19FF6A4AC0EB9AE44B8 /* Pods-Countries.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -157,7 +156,6 @@
 				9632CF72289BDA3A0004B695 /* Sources */,
 				9632CF73289BDA3A0004B695 /* Frameworks */,
 				9632CF74289BDA3A0004B695 /* Resources */,
-				5819080C598338F45708B4D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,23 +234,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5819080C598338F45708B4D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Countries/Pods-Countries-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Countries/Pods-Countries-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Countries/Pods-Countries-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -10,29 +10,35 @@ import UIKit
 class SavedScreenVC: UIViewController, FavouriteCellsDelegate, SavedScreenVcdelegate {
     func didUpdateCountries(countries: [Country]) {
         DispatchQueue.main.async {
-            
+            self.tableView.reloadData()
             self.countriesList = self.removeNonSaved(countries: countries)
             self.tableView.reloadData()
         }
     }
     
     func assignFavourites(favourites: Int) {
+        let navVC = self.tabBarController?.viewControllers![0] as! UINavigationController
+        let cartTableViewController = navVC.topViewController as!ViewController
         if countriesList[favourites].saved == true {
             countriesList[favourites].saved = false
-            let navVC = self.tabBarController?.viewControllers![0] as! UINavigationController
-            let cartTableViewController = navVC.topViewController as!ViewController
+            
+            if cartTableViewController.countriesList.contains(where: {$0.code == countriesList[favourites].code}) {
+                cartTableViewController.countriesList[favourites].saved = false
+            }
             cartTableViewController.tableView.reloadData()
             countriesList.remove(at: favourites)
             tableView.reloadData()
             
-        } else{
+        } else if countriesList[favourites].saved == false {
             countriesList[favourites].saved = true
+            
         }
     }
     
     
     @IBOutlet weak var tableView: UITableView!
     var countriesList: [Country] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

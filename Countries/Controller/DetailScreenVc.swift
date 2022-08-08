@@ -6,29 +6,34 @@
 //
 
 import UIKit
-import WebKit
-import Kingfisher
 
-class DetailScreenVc: UIViewController, DetailManagerDelegate{
+
+class DetailScreenVc: UIViewController, DetailManagerDelegate, DetailScreenVcdelegate{
+    func didUpdateCode(countryCode: String) {
+        print("**********************")
+        print(countryCode)
+
+        self.Ccode = countryCode
+    }
+    
     
     
     func didUpdateDetail(_ detailManager: DetailManager, details: DetailsModel) {
         DispatchQueue.main.async {
             self.detailModel = details
-            let url = URL(string: details.flagImageUri)!
             
-            self.flagImage.kf.setImage(with: url)
-            self.flagImage.reloadInputViews()
             self.countryLabel.text = "Country Code: \(self.detailModel.code)"
             
             
         }
     }
     
-    
+    var Ccode: String = "US"
     @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
     @IBAction func detailButton(_ sender: Any) {
+        var url = "https://www.wikidata.org/wiki/\(detailModel.wikiDataId)"
+        UIApplication.shared.openURL(NSURL(string: url)! as URL)
     }
     
 
@@ -41,7 +46,11 @@ class DetailScreenVc: UIViewController, DetailManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         detailManager.delegate = self
-        detailManager.fetchDetail(code: "US")
+        let vc = self.navigationController?.viewControllers.first as! ViewController
+        vc.detailDelegete = self
+        detailManager.fetchDetail(code: vc.cCode)
+        
+        
         
         
         
@@ -50,9 +59,8 @@ class DetailScreenVc: UIViewController, DetailManagerDelegate{
         image = image?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(goBack))
         
-        print("jnj")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: rightImage?.withTintColor(.darkGray), style: .plain, target: self, action: #selector(rightPressed) )
-        
+       
+       
 
         // Do any additional setup after loading the view.
     }
@@ -74,16 +82,6 @@ class DetailScreenVc: UIViewController, DetailManagerDelegate{
         _ = navigationController?.popViewController(animated: true)
             }
     
-    @objc func rightPressed() {
-        if rightImage == UIImage(systemName: "star.fill"){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(rightPressed))
-            rightImage = UIImage(systemName: "star")
-            }
-        else{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(rightPressed))
-            rightImage = UIImage(systemName: "star.fill")
-        }
-    }
 
 
 }
